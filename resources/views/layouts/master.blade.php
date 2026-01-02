@@ -78,7 +78,7 @@
 								@endif
 								@endauth
 
-								<li><a href="{{ route('reviews') }}"> اراء العملاء</a></li>
+								
 							
 								
 

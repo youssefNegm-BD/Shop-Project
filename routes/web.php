@@ -6,9 +6,7 @@ use App\Models\product;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Auth\AuthenticateController;
-
-
-
+use App\Http\Controllers\ReviewController;
 
 Route::get('/',[MainController::class ,'mainPage'])->name('homePage');
 Route::get('/category',[MainController::class ,'category'])->name('categories');
@@ -29,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile',[AuthenticateController::class,'profile'])->name('profile');
     Route::post('updateProfile',[AuthenticateController::class,'updateProfile'])->name('updateProfile');
     Route::get('productList',[AuthenticateController::class,'productList'])->name('productList');
+    Route::get('change',[AuthenticateController::class,'changePass'])->name('changePass');
+    Route::post('auth-pass',[AuthenticateController::class,'authPass'])->name('authPass');
     Route::get('logout',[AuthenticateController::class,'logout'])->name('logout');
 });
 

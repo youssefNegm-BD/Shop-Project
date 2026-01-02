@@ -26,20 +26,13 @@
                                 <li class="nav-item">
                                 <a href="{{ route('productList') }}">products</a>                               
                             </li>
-                            <li class="nav-item">
-                                <a href="#">All Reviews</a>
-                            </li>
-                            
                                 @endif
 
                             <li class="nav-item">
                                 <a href="{{ route('profile') }}">Profile</a>                               
                             </li>
                             <li class="nav-item">
-                                <a href="#">My Reviews</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#">Change Password</a>
+                                <a href="{{ route('changePass') }}">Change Password</a>
                             </li> 
                             <li class="nav-item">
                                 <a href="{{ route('logout') }}">Logout</a>

@@ -114,6 +114,26 @@ class AuthenticateController extends Controller
     ]);
 }
 
+// change password------------------------------
+    public function changePass(){
+        return view('Auth.changepassword');
+    }
+    
+    public function authPass(Request $request){
+        $user = User::find(Auth::user()->id);
+            if(trim($request->newPass) == trim($request->confirmPass)){
+                if(Hash::check($request->oldPass, $user->password)){
+                    $user->password = Hash::make($request->newPass);
+                    $user->save();
+                    return redirect()->back()->with('success', 'Password changed successfully');
+                }else{
+                    return redirect()->back()->with('error', 'Old password Not Validate');
+                }
+            }else{
+                return redirect()->back()->with('error', 'Password Not confirmed');
+            }
+    }
+
 
 
 
