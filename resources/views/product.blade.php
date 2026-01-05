@@ -26,7 +26,8 @@
 						</div>
 						<h3>{{$item-> name}}</h3>
 						<p class="product-price"><span>quantity<br>{{$item-> quantity}}</span>   {{$item-> price}}$</p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{ route('cart.add', $item->id) }}" class="btn btn-primary">اضف الي السلة</a>
+
 					</div>
 				</div>
                 @endforeach

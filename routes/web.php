@@ -6,8 +6,7 @@ use App\Models\product;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Auth\AuthenticateController;
-use App\Http\Controllers\ReviewController;
-
+use App\Http\Controllers\CartController;
 Route::get('/',[MainController::class ,'mainPage'])->name('homePage');
 Route::get('/category',[MainController::class ,'category'])->name('categories');
 Route::get('/review',[MainController::class ,'review'])->name('reviews');
@@ -30,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('change',[AuthenticateController::class,'changePass'])->name('changePass');
     Route::post('auth-pass',[AuthenticateController::class,'authPass'])->name('authPass');
     Route::get('logout',[AuthenticateController::class,'logout'])->name('logout');
+    Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+    Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::post('/cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
 });
 
 Route::group(['middleware'=>'guest'],function(){

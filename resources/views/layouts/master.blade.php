@@ -30,6 +30,10 @@
 	<link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+		crossorigin="anonymous" referrerpolicy="no-referrer">
+	</script>
 
 </head>
 <body>
@@ -87,7 +91,8 @@
 
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="{{ route('cart') }}"><i class="fas fa-shopping-cart">
+											{{ count(session('cart',[])) }}</i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -288,4 +293,5 @@
 	<script src="{{asset('assets/js/main.js')}}"></script>
 
 </body>
+@yield('scripts')
 </html>
