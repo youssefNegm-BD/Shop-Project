@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::post('/cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
+    Route::post('/order', [CartController::class, 'order'])->name('order');
+    Route::get('/paypal/success', [CartController::class, 'paypalSuccess'])->name('paypal.success');
+    Route::get('/paypal/cancel', [CartController::class, 'paypalCancel'])->name('paypal.cancel');
 });
 
 Route::group(['middleware'=>'guest'],function(){

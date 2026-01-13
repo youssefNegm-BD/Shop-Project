@@ -4,13 +4,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-12">
+                    <form action="{{ route('order') }}" method="post" >
+                        @csrf
+                    
 					<div class="cart-table-wrap" id="cart-products">
                     @include('cartProducts')
 					</div>
                     <div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a href="{{  route('products')}}" class="boxed-btn">Continue Shopping</a>
+							<button class="btn btn-success" style="border-radius: 20px; padding: 11px;">Check Out</button>
 						</div>
+                    
 				</div>
 			</div>
 		</div>
