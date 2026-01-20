@@ -7,6 +7,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Auth\AuthenticateController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\GoogleController;
+
+
 Route::get('/',[MainController::class ,'mainPage'])->name('homePage');
 Route::get('/category',[MainController::class ,'category'])->name('categories');
 Route::get('/review',[MainController::class ,'review'])->name('reviews');
@@ -43,6 +46,8 @@ Route::group(['middleware'=>'guest'],function(){
         Route::post('/processRegister',[AuthenticateController::class,'processRegister'])->name('processRegister');
         Route::get('/login',[AuthenticateController::class,'login'])->name('login');
         Route::post('authenticate',[AuthenticateController::class,'authenticate'])->name('authenticate');
+        Route::get('auth/google', [GoogleController::class, 'redirect'])->name('google.login');
+        Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
 
 });
 
