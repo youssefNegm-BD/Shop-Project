@@ -75,12 +75,11 @@
                                                 <button class="btn bsb-btn-xl btn-primary py-3" type="submit">Log In Now</button>
                                             </div>
                                             <div class="d-grid">
-                                                
-                                                <a  href="{{ route('google.login') }}" type="submit" style="color: white; 
-                                                                                    padding: 7px;
-                                                                                    margin-top: 5px; border: 1px solid;
-                                                                                    background-color: #007bff;
-                                                                                    border-radius: 5px;">Log In with google <i class="fab fa-google"></i></a>
+                                                <a href="{{ route('google.redirect') }}" 
+                                                class="btn bsb-btn-xl btn-primary py-3" 
+                                                style="color: white; padding: 7px; margin-top: 5px; border: 1px solid; background-color: #007bff; border-radius: 5px;">
+                                                    Log In with google <i class="fab fa-google"></i>
+                                                </a>
                                             </div>
                                         </div>
                                         

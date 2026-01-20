@@ -7,7 +7,7 @@ use Laravel\Socialite\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Auth;
 class GoogleController extends Controller
 {
     public function redirect(){
@@ -33,12 +33,8 @@ class GoogleController extends Controller
 
         }
         $token = $user->createToken('google-token')->plainTextToken;
-        return response()->json([
-            'status'=>'success',
-            'message'=>'User Logged in successfully',
-            'user'=>$user,
-            'token'=>$token 
-        ]);
+        Auth::login($user);
+    return redirect('/')->with('success', 'Logged in successfully!');
     } catch(\Exception $e){
         return response()->json([
             'erorr'=>'login Failed:' . $e->getMessage()
